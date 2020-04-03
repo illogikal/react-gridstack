@@ -1,7 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
-import $ from 'jquery'
 import 'gridstack/dist/gridstack.js'
 import differenceWith from 'lodash/differenceWith'
 import map from 'lodash/map'
@@ -13,8 +12,8 @@ export default class GridStack extends React.Component {
   }
 
   get layout() {
-    const layout = map($('.grid-stack .grid-stack-item:visible'), el => {
-      const node = $(el).data('_gridstack_node')
+    const layout = document.querySelectorAll('.grid-stack .grid-stack-item:visible').map(el => {
+      const node = el.dataset
       return {
         id: node.id,
         maxHeight: node.maxHeight,
@@ -31,7 +30,7 @@ export default class GridStack extends React.Component {
   }
 
   clear() {
-    $(this.refs.gridstack).data('gridstack').removeAll()
+    this.gridstack.gridstack.removeAll()
   }
 
   onAdded(e, items) {
@@ -107,46 +106,37 @@ export default class GridStack extends React.Component {
       width: this.props.width
     }
 
-    const gridstack = $(this.refs.gridstack).gridstack(options).data('gridstack')
-    $(this.refs.gridstack).on('resizestop', this.onResizeStop.bind(this))
-    $(this.refs.gridstack).on('resizestart', this.onResizeStart.bind(this))
-    $(this.refs.gridstack).on('removed', this.onRemoved.bind(this))
-    $(this.refs.gridstack).on('dragstop', this.onDragStop.bind(this))
-    $(this.refs.gridstack).on('dragstart', this.onDragStart.bind(this))
-    $(this.refs.gridstack).on('disable', this.onDisable.bind(this))
-    $(this.refs.gridstack).on('enable', this.onEnable.bind(this))
-    $(this.refs.gridstack).on('change', this.onChange.bind(this))
-    $(this.refs.gridstack).on('added', this.onAdded.bind(this))
+    this.gridstack = GridStack.init(options) 
+    this.gridstack.on('resizestop', this.onResizeStop.bind(this))
+    this.gridstack.on('resizestart', this.onResizeStart.bind(this))
+    this.gridstack.on('removed', this.onRemoved.bind(this))
+    this.gridstack.on('dragstop', this.onDragStop.bind(this))
+    this.gridstack.on('dragstart', this.onDragStart.bind(this))
+    this.gridstack.on('disable', this.onDisable.bind(this))
+    this.gridstack.on('enable', this.onEnable.bind(this))
+    this.gridstack.on('change', this.onChange.bind(this))
+    this.gridstack.on('added', this.onAdded.bind(this))
 
 
     this.props.children.forEach(child => {
       gridstack.addWidget(
         '<div class="grid-stack-item"><div id="' + child.props.id + '" class="grid-stack-item-content"></div></div>',
-        child.props.x,
-        child.props.y,
-        child.props.width,
-        child.props.height,
-        child.props.autoPosition,
-        child.props.minWidth,
-        child.props.maxWidth,
-        child.props.minHeight,
-        child.props.maxHeight,
-        child.props.id
+        { ...child.props },
       )
       ReactDOM.render(child, document.getElementById(child.props.id))
     })
   }
 
   componentWillUnmount() {
-    $(this.refs.gridstack).off('resizestop', this.onResizeStop.bind(this))
-    $(this.refs.gridstack).off('resizestart', this.onResizeStart.bind(this))
-    $(this.refs.gridstack).off('removed', this.onRemoved.bind(this))
-    $(this.refs.gridstack).off('dragstop', this.onDragStop.bind(this))
-    $(this.refs.gridstack).off('dragstart', this.onDragStart.bind(this))
-    $(this.refs.gridstack).off('disable', this.onDisable.bind(this))
-    $(this.refs.gridstack).off('enable', this.onEnable.bind(this))
-    $(this.refs.gridstack).off('change', this.onChange.bind(this))
-    $(this.refs.gridstack).off('added', this.onAdded.bind(this))
+    this.gridstack.off('resizestop', this.onResizeStop.bind(this))
+    this.gridstack.off('resizestart', this.onResizeStart.bind(this))
+    this.gridstack.off('removed', this.onRemoved.bind(this))
+    this.gridstack.off('dragstop', this.onDragStop.bind(this))
+    this.gridstack.off('dragstart', this.onDragStart.bind(this))
+    this.gridstack.off('disable', this.onDisable.bind(this))
+    this.gridstack.off('enable', this.onEnable.bind(this))
+    this.gridstack.off('change', this.onChange.bind(this))
+    this.gridstack.off('added', this.onAdded.bind(this))
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -156,7 +146,7 @@ export default class GridStack extends React.Component {
       return
     }
 
-    const gridstack = $(this.refs.gridstack).data('gridstack')
+    const gridstack = this.gridstack.gridstack
 
     // Find any widgets we need to remove
     const toRemove = differenceWith(prevProps.children, this.props.children, (a, b) => {
@@ -194,16 +184,7 @@ export default class GridStack extends React.Component {
       else {
         gridstack.addWidget(
           '<div class="grid-stack-item"><div id="' + child.props.id + '" class="grid-stack-item-content"></div></div>',
-          child.props.x,
-          child.props.y,
-          child.props.width,
-          child.props.height,
-          child.props.autoPosition,
-          child.props.minWidth,
-          child.props.maxWidth,
-          child.props.minHeight,
-          child.props.maxHeight,
-          child.props.id
+          { ...child.props },
         )
       }
       ReactDOM.render(child, document.getElementById(child.props.id))
