@@ -23,10 +23,6 @@
     "url": "https://github.com/pitrho/react-gridstack.git/issues"
   },
   "homepage": "https://github.com/pitrho/react-gridstack.git#readme",
-  "peerDependencies": {
-    "react": ">= 0.14.7",
-    "react-dom": ">= 0.14.5"
-  },
   "devDependencies": {
     "babel": "^6.5.2",
     "babel-core": "^6.7.7",
@@ -51,8 +47,10 @@
     "webpack-stream": "^3.2.0"
   },
   "dependencies": {
-    "gridstack": "^0.2.5",
-    "jquery": "^2.2.1",
-    "lodash": "^4.11.1"
+    "gridstack": "^1.1.1",
+    "jquery": "^3.4.1",
+    "lodash": "^4.17.15",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   }
 }
