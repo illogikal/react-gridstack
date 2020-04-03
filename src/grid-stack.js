@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom'
 
 import $ from 'jquery'
 import 'gridstack/dist/gridstack.js'
-import 'gridstack/dist/gridstack.css'
 import differenceWith from 'lodash/differenceWith'
 import map from 'lodash/map'
 
@@ -138,7 +137,7 @@ export default class GridStack extends React.Component {
     })
   }
 
-  componentWillUnmount(){
+  componentWillUnmount() {
     $(this.refs.gridstack).off('resizestop', this.onResizeStop.bind(this))
     $(this.refs.gridstack).off('resizestart', this.onResizeStart.bind(this))
     $(this.refs.gridstack).off('removed', this.onRemoved.bind(this))
