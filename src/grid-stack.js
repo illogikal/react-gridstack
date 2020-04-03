@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-
+import PropTypes from 'prop-types'
 import $ from 'jquery'
 import 'gridstack/dist/gridstack.js'
 import differenceWith from 'lodash/differenceWith'
@@ -218,46 +218,46 @@ export default class GridStack extends React.Component {
 }
 
 GridStack.propTypes = {
-  acceptWidgets: React.PropTypes.bool,
-  alwaysShowResizeHandle: React.PropTypes.bool,
-  animate: React.PropTypes.bool,
-  auto: React.PropTypes.bool,
-  cellHeight: React.PropTypes.oneOfType([
-    React.PropTypes.number,
-    React.PropTypes.string
+  acceptWidgets: PropTypes.bool,
+  alwaysShowResizeHandle: PropTypes.bool,
+  animate: PropTypes.bool,
+  auto: PropTypes.bool,
+  cellHeight: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string
   ]),
-  children: React.PropTypes.node,
-  disableDrag: React.PropTypes.bool,
-  disableResize: React.PropTypes.bool,
-  draggable: React.PropTypes.object,
-  float: React.PropTypes.bool,
-  handle: React.PropTypes.string,
-  handleClass: React.PropTypes.string,
-  height: React.PropTypes.number,
-  itemClass: React.PropTypes.string,
-  minWidth: React.PropTypes.number,
-  onAdded: React.PropTypes.func,
-  onChange: React.PropTypes.func,
-  onDisable: React.PropTypes.func,
-  onDragStart: React.PropTypes.func,
-  onDragStop: React.PropTypes.func,
-  onEnable: React.PropTypes.func,
-  onRemoved: React.PropTypes.func,
-  onResizeStart: React.PropTypes.func,
-  onResizeStop: React.PropTypes.func,
-  placeholderClass: React.PropTypes.string,
-  placeholderText: React.PropTypes.string,
-  removable: React.PropTypes.bool,
-  removeTimeout: React.PropTypes.number,
-  resizable: React.PropTypes.bool,
-  rtl: React.PropTypes.oneOfType([
-    React.PropTypes.bool,
-    React.PropTypes.string
+  children: PropTypes.node,
+  disableDrag: PropTypes.bool,
+  disableResize: PropTypes.bool,
+  draggable: PropTypes.object,
+  float: PropTypes.bool,
+  handle: PropTypes.string,
+  handleClass: PropTypes.string,
+  height: PropTypes.number,
+  itemClass: PropTypes.string,
+  minWidth: PropTypes.number,
+  onAdded: PropTypes.func,
+  onChange: PropTypes.func,
+  onDisable: PropTypes.func,
+  onDragStart: PropTypes.func,
+  onDragStop: PropTypes.func,
+  onEnable: PropTypes.func,
+  onRemoved: PropTypes.func,
+  onResizeStart: PropTypes.func,
+  onResizeStop: PropTypes.func,
+  placeholderClass: PropTypes.string,
+  placeholderText: PropTypes.string,
+  removable: PropTypes.bool,
+  removeTimeout: PropTypes.number,
+  resizable: PropTypes.bool,
+  rtl: PropTypes.oneOfType([
+    PropTypes.bool,
+    PropTypes.string
   ]),
-  staticGrid: React.PropTypes.bool,
-  verticalMargin: React.PropTypes.oneOfType([
-    React.PropTypes.number,
-    React.PropTypes.string
+  staticGrid: PropTypes.bool,
+  verticalMargin: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string
   ]),
-  width: React.PropTypes.number
+  width: PropTypes.number
 }

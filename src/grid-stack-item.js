@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 export default class GridStackItem extends React.Component {
   constructor(props) {
@@ -11,18 +12,18 @@ export default class GridStackItem extends React.Component {
 }
 
 GridStackItem.propTypes = {
-  autoPosition: React.PropTypes.bool,
-  children: React.PropTypes.node,
-  height: React.PropTypes.number,
-  id: React.PropTypes.string.isRequired,
-  maxHeight: React.PropTypes.number,
-  maxWidth: React.PropTypes.number,
-  minHeight: React.PropTypes.number,
-  minWidth: React.PropTypes.number,
-  onShouldUpdate: React.PropTypes.func,
-  width: React.PropTypes.number,
-  x: React.PropTypes.number,
-  y: React.PropTypes.number
+  autoPosition: PropTypes.bool,
+  children: PropTypes.node,
+  height: PropTypes.number,
+  id: PropTypes.string.isRequired,
+  maxHeight: PropTypes.number,
+  maxWidth: PropTypes.number,
+  minHeight: PropTypes.number,
+  minWidth: PropTypes.number,
+  onShouldUpdate: PropTypes.func,
+  width: PropTypes.number,
+  x: PropTypes.number,
+  y: PropTypes.number
 }
 
 GridStackItem.defaultProps = {
