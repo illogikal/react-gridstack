@@ -1617,7 +1617,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        verticalMargin: this.props.verticalMargin,
 	        width: this.props.width
 	      };
-	      var GridStackLib = __webpack_require__(48);
+	      var GridStackLib = __webpack_require__(48)();
 	      this.gridstack = GridStackLib.init(options);
 	      this.gridstack.on('resizestop', this.onResizeStop.bind(this));
 	      this.gridstack.on('resizestart', this.onResizeStart.bind(this));
