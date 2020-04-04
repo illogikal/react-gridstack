@@ -81,28 +81,32 @@ export default class GridStackContainer extends React.Component {
       animate: this.props.animate,
       auto: this.props.auto,
       cellHeight: this.props.cellHeight,
+      column: this.props.column,
+      ddPlugin: this.props.ddPlugin,
       disableDrag: this.props.disableDrag,
+      disableOneColumnMode: this.props.disableOneColumnMode,
       disableResize: this.props.disableResize,
       draggable: this.props.draggable,
+      dragOut: this.props.dragOut,
       float: this.props.float,
       handle: this.props.handle,
       handleClass: this.props.handleClass,
-      height: this.props.height,
       itemClass: this.props.itemClass,
+      maxRow: this.props.maxRow,
+      minRow: this.props.minRow,
       minWidth: this.props.minWidth,
+      oneColumnModeDomSort: this.props.oneColumnModeDomSort,
       placeholderClass: this.props.placeholderClass,
       placeholderText: this.props.placeholderText,
       removable: this.props.removable,
       removeTimeout: this.props.removeTimeout,
       resizable: this.props.resizable,
+      row: this.props.row,
       rtl: this.props.rtl,
       staticGrid: this.props.staticGrid,
-      verticalMargin: this.props.verticalMargin,
-      width: this.props.width
+      verticalMargin: this.props.verticalMargin
     }
-    window.gridstack = GridStack
     this.gridstack = GridStack.init(options) 
-    const gridstack = this.gridstack
     this.gridstack.on('resizestop', this.onResizeStop.bind(this))
     this.gridstack.on('resizestart', this.onResizeStart.bind(this))
     this.gridstack.on('removed', this.onRemoved.bind(this))
@@ -201,21 +205,27 @@ GridStack.propTypes = {
     PropTypes.number,
     PropTypes.string
   ]),
+  column: PropTypes.number,
   children: PropTypes.node,
+  ddPlugin: PropTypes.any,
   disableDrag: PropTypes.bool,
+  disableOneColumnMode: PropTypes.bool,
   disableResize: PropTypes.bool,
   draggable: PropTypes.object,
+  dragOut: PropTypes.bool,
   float: PropTypes.bool,
   handle: PropTypes.string,
   handleClass: PropTypes.string,
-  height: PropTypes.number,
   itemClass: PropTypes.string,
+  maxRow: PropTypes.number,
+  minRow: PropTypes.number,
   minWidth: PropTypes.number,
   onAdded: PropTypes.func,
   onChange: PropTypes.func,
   onDisable: PropTypes.func,
   onDragStart: PropTypes.func,
   onDragStop: PropTypes.func,
+  oneColumnModeDomSort: PropTypes.bool,
   onEnable: PropTypes.func,
   onRemoved: PropTypes.func,
   onResizeStart: PropTypes.func,
@@ -225,6 +235,7 @@ GridStack.propTypes = {
   removable: PropTypes.bool,
   removeTimeout: PropTypes.number,
   resizable: PropTypes.bool,
+  row: PropTypes.number,
   rtl: PropTypes.oneOfType([
     PropTypes.bool,
     PropTypes.string
@@ -233,6 +244,5 @@ GridStack.propTypes = {
   verticalMargin: PropTypes.oneOfType([
     PropTypes.number,
     PropTypes.string
-  ]),
-  width: PropTypes.number
+  ])
 }
