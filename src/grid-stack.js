@@ -99,8 +99,8 @@ export default class GridStack extends React.Component {
       verticalMargin: this.props.verticalMargin,
       width: this.props.width
     }
-    const GridStackLib = require('gridstack')
-    window.GridStackLib = GridStackLib
+    const GridStackLib = require('gridstack/dist/gridstack.all.js')
+    window.gridstack = GridStackLib
     this.gridstack = GridStackLib.init(options) 
     const gridstack = this.gridstack
     this.gridstack.on('resizestop', this.onResizeStop.bind(this))
