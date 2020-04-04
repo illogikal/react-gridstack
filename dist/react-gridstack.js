@@ -1592,6 +1592,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }, {
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
+	      var _this2 = this;
+
 	      var options = {
 	        acceptWidgets: this.props.acceptWidgets,
 	        alwaysShowResizeHandle: this.props.alwaysShowResizeHandle,
@@ -1634,7 +1636,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      this.gridstack.on('added', this.onAdded.bind(this));
 
 	      this.props.children.forEach(function (child) {
-	        gridstack.addWidget('<div class="grid-stack-item"><div id="' + child.props.id + '" class="grid-stack-item-content"></div></div>', _extends({}, child.props));
+	        _this2.gridstack.addWidget('<div class="grid-stack-item"><div id="' + child.props.id + '" class="grid-stack-item-content"></div></div>', _extends({}, child.props));
 	        _reactDom2.default.render(child, document.getElementById(child.props.id));
 	      });
 	    }

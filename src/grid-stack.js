@@ -118,7 +118,7 @@ export default class GridStackContainer extends React.Component {
 
 
     this.props.children.forEach(child => {
-      gridstack.addWidget(
+      this.gridstack.addWidget(
         '<div class="grid-stack-item"><div id="' + child.props.id + '" class="grid-stack-item-content"></div></div>',
         { ...child.props },
       )
