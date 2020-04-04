@@ -1501,7 +1501,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _propTypes2 = _interopRequireDefault(_propTypes);
 
-	__webpack_require__(48);
+	var _gridstack = __webpack_require__(48);
+
+	var _gridstack2 = _interopRequireDefault(_gridstack);
 
 	var _differenceWith = __webpack_require__(139);
 
@@ -1538,13 +1540,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    value: function onAdded(e, items) {
 	      if (this.props.onAdded) {
 	        this.props.onAdded(e, items);
-	      }
-	    }
-	  }, {
-	    key: 'onChange',
-	    value: function onChange(e, items) {
-	      if (this.props.onChange) {
-	        this.props.onChange(e, items);
 	      }
 	    }
 	  }, {
@@ -1627,7 +1622,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        width: this.props.width
 	      };
 
-	      this.gridstack = GridStack.init(options);
+	      this.gridstack = _gridstack2.default.init(options);
 	      this.gridstack.on('resizestop', this.onResizeStop.bind(this));
 	      this.gridstack.on('resizestart', this.onResizeStart.bind(this));
 	      this.gridstack.on('removed', this.onRemoved.bind(this));
@@ -1635,7 +1630,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	      this.gridstack.on('dragstart', this.onDragStart.bind(this));
 	      this.gridstack.on('disable', this.onDisable.bind(this));
 	      this.gridstack.on('enable', this.onEnable.bind(this));
-	      this.gridstack.on('change', this.onChange.bind(this));
 	      this.gridstack.on('added', this.onAdded.bind(this));
 
 	      this.props.children.forEach(function (child) {
@@ -1653,7 +1647,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	      this.gridstack.off('dragstart', this.onDragStart.bind(this));
 	      this.gridstack.off('disable', this.onDisable.bind(this));
 	      this.gridstack.off('enable', this.onEnable.bind(this));
-	      this.gridstack.off('change', this.onChange.bind(this));
 	      this.gridstack.off('added', this.onAdded.bind(this));
 	    }
 	  }, {

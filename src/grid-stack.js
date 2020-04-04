@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
-import 'gridstack/dist/gridstack.js'
+import GridStackLib from 'gridstack/dist/gridstack.js'
 import differenceWith from 'lodash/differenceWith'
 import map from 'lodash/map'
 
@@ -36,11 +36,6 @@ export default class GridStack extends React.Component {
   onAdded(e, items) {
     if(this.props.onAdded) {
       this.props.onAdded(e, items)
-    }
-  }
-  onChange(e, items) {
-    if(this.props.onChange) {
-      this.props.onChange(e, items)
     }
   }
   onDisable(e) {
@@ -106,7 +101,7 @@ export default class GridStack extends React.Component {
       width: this.props.width
     }
 
-    this.gridstack = GridStack.init(options) 
+    this.gridstack = GridStackLib.init(options) 
     this.gridstack.on('resizestop', this.onResizeStop.bind(this))
     this.gridstack.on('resizestart', this.onResizeStart.bind(this))
     this.gridstack.on('removed', this.onRemoved.bind(this))
@@ -114,7 +109,6 @@ export default class GridStack extends React.Component {
     this.gridstack.on('dragstart', this.onDragStart.bind(this))
     this.gridstack.on('disable', this.onDisable.bind(this))
     this.gridstack.on('enable', this.onEnable.bind(this))
-    this.gridstack.on('change', this.onChange.bind(this))
     this.gridstack.on('added', this.onAdded.bind(this))
 
 
@@ -135,7 +129,6 @@ export default class GridStack extends React.Component {
     this.gridstack.off('dragstart', this.onDragStart.bind(this))
     this.gridstack.off('disable', this.onDisable.bind(this))
     this.gridstack.off('enable', this.onEnable.bind(this))
-    this.gridstack.off('change', this.onChange.bind(this))
     this.gridstack.off('added', this.onAdded.bind(this))
   }
 
