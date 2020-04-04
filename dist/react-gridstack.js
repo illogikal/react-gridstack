@@ -1509,6 +1509,8 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _map2 = _interopRequireDefault(_map);
 
+	__webpack_require__(48);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1517,16 +1519,16 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var GridStack = function (_React$Component) {
-	  _inherits(GridStack, _React$Component);
+	var GridStackContainer = function (_React$Component) {
+	  _inherits(GridStackContainer, _React$Component);
 
-	  function GridStack(props) {
-	    _classCallCheck(this, GridStack);
+	  function GridStackContainer(props) {
+	    _classCallCheck(this, GridStackContainer);
 
-	    return _possibleConstructorReturn(this, (GridStack.__proto__ || Object.getPrototypeOf(GridStack)).call(this, props));
+	    return _possibleConstructorReturn(this, (GridStackContainer.__proto__ || Object.getPrototypeOf(GridStackContainer)).call(this, props));
 	  }
 
-	  _createClass(GridStack, [{
+	  _createClass(GridStackContainer, [{
 	    key: 'clear',
 	    value: function clear() {
 	      this.gridstack.removeAll();
@@ -1615,9 +1617,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	        verticalMargin: this.props.verticalMargin,
 	        width: this.props.width
 	      };
-	      var GridStackLib = __webpack_require__(48);
-	      window.gridstack = GridStackLib;
-	      this.gridstack = GridStackLib.init(options);
+	      window.gridstack = GridStack;
+	      this.gridstack = GridStack.init(options);
 	      var gridstack = this.gridstack;
 	      this.gridstack.on('resizestop', this.onResizeStop.bind(this));
 	      this.gridstack.on('resizestart', this.onResizeStart.bind(this));
@@ -1719,10 +1720,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	  }]);
 
-	  return GridStack;
+	  return GridStackContainer;
 	}(_react2.default.Component);
 
-	exports.default = GridStack;
+	exports.default = GridStackContainer;
 
 
 	GridStack.propTypes = {

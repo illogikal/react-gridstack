@@ -3,8 +3,9 @@ import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 import differenceWith from 'lodash/differenceWith'
 import map from 'lodash/map'
+import 'gridstack/dist/gridstack.all.js'
 
-export default class GridStack extends React.Component {
+export default class GridStackContainer extends React.Component {
 
   constructor(props) {
     super(props)
@@ -99,9 +100,8 @@ export default class GridStack extends React.Component {
       verticalMargin: this.props.verticalMargin,
       width: this.props.width
     }
-    const GridStackLib = require('gridstack/dist/gridstack.all.js')
-    window.gridstack = GridStackLib
-    this.gridstack = GridStackLib.init(options) 
+    window.gridstack = GridStack
+    this.gridstack = GridStack.init(options) 
     const gridstack = this.gridstack
     this.gridstack.on('resizestop', this.onResizeStop.bind(this))
     this.gridstack.on('resizestart', this.onResizeStart.bind(this))
