@@ -99,8 +99,10 @@ export default class GridStack extends React.Component {
       verticalMargin: this.props.verticalMargin,
       width: this.props.width
     }
-    const GridStackLib = require('gridstack/dist/gridstack.all.js')()
+    const GridStackLib = require('gridstack')
+    window.GridStackLib = GridStackLib
     this.gridstack = GridStackLib.init(options) 
+    const gridstack = this.gridstack
     this.gridstack.on('resizestop', this.onResizeStop.bind(this))
     this.gridstack.on('resizestart', this.onResizeStart.bind(this))
     this.gridstack.on('removed', this.onRemoved.bind(this))
@@ -112,7 +114,7 @@ export default class GridStack extends React.Component {
 
 
     this.props.children.forEach(child => {
-      this.gridstack.addWidget(
+      gridstack.addWidget(
         '<div class="grid-stack-item"><div id="' + child.props.id + '" class="grid-stack-item-content"></div></div>',
         { ...child.props },
       )
