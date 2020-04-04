@@ -1697,13 +1697,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	        } else {
 	          gridstack.addWidget('<div class="grid-stack-item"><div id="' + child.props.id + '" class="grid-stack-item-content"></div></div>', _extends({}, child.props));
 	        }
-	        _reactDom2.default.render(child, document.getElementById(child.props.id));
+	        document.getElementById(child.props.id);
 	      });
 	    }
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      return _react2.default.createElement('div', { ref: 'gridstack', className: 'grid-stack' });
+	      return _react2.default.createElement(
+	        'div',
+	        { ref: 'gridstack', className: 'grid-stack' },
+	        this.props.children
+	      );
 	    }
 	  }, {
 	    key: 'layout',

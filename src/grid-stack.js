@@ -185,13 +185,15 @@ export default class GridStackContainer extends React.Component {
           { ...child.props },
         )
       }
-      ReactDOM.render(child, document.getElementById(child.props.id))
+      document.getElementById(child.props.id)
     })
   }
 
   render() {
     return (
-      <div ref="gridstack" className="grid-stack" />
+      <div ref="gridstack" className="grid-stack">
+        {this.props.children}
+      </div>
     )
   }
 }
