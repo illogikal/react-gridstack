@@ -1501,10 +1501,6 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _propTypes2 = _interopRequireDefault(_propTypes);
 
-	var _gridstack = __webpack_require__(48);
-
-	var _gridstack2 = _interopRequireDefault(_gridstack);
-
 	var _differenceWith = __webpack_require__(139);
 
 	var _differenceWith2 = _interopRequireDefault(_differenceWith);
@@ -1621,8 +1617,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	        verticalMargin: this.props.verticalMargin,
 	        width: this.props.width
 	      };
-
-	      this.gridstack = _gridstack2.default.init(options);
+	      var GridStackLib = __webpack_require__(48);
+	      this.gridstack = GridStackLib.init(options);
 	      this.gridstack.on('resizestop', this.onResizeStop.bind(this));
 	      this.gridstack.on('resizestart', this.onResizeStart.bind(this));
 	      this.gridstack.on('removed', this.onRemoved.bind(this));
